@@ -1,0 +1,2 @@
+module DomovHelper
+end

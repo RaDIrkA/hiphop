@@ -1,7 +1,8 @@
 Hiphop::Application.routes.draw do
-  get "videos/index"
+  devise_for :users
+  get "domov/index"
 
-  root "videos#index" 
+  root "domov#index" 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

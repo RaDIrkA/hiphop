@@ -23,30 +23,76 @@
   <body>
     <nav class="top-bar">
       <ul class="title-area">
-        <li class="name"><h1><a href="#">HipHop.Si</a></h1></li>
+        <li class="name"><h1><%= link_to "HipHop.Si", root_path %></h1></li>
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-
       </ul>
+
+        
+      </section>
       <section class="top-bar-section">
         <ul class="left">
-          <form>
-            <div class="row collapse">
-              <div class="large-8 large-8 columns">
-                <input type="text" placeholder="Brskaj" />
-              </div>
+          <li class="divider"></li>
+          
+
+          <li class="active"><a href="#">Menujcek</a></li>
+          <li class="divider"></li>
+        
+          <% if user_signed_in? %>
+            <li><p>&#8594; Prijavljeni ste kot  | <span><%= current_user.email %> &#8629;</span></p></li>
+            <li class="divider"></li>
+            <li><%= link_to 'Uredi profil', edit_user_registration_path %> </li>
+            <li class="divider"></li>
+            <li><%= link_to 'Izpiši me', destroy_user_session_path, method: :delete %></li>
+            <li class="divider"></li>
+          <% else %>
+            <li class="larger-2 "></li>
+            <li><%= link_to 'Registriraj se', new_user_registration_path %></li>
+            <li class="divider"></li>    
+            <li><%= link_to 'Prijava', new_user_session_path %></li>
+            <li class="divider"></li> 
+          <% end %>     
+        </ul>   
+
+        <ul class="right">
+          <li class="divider"></li>
+          <li>
+            <form>
+              <div class="row collapse">
+                <div class="large-6 large-8 columns">
+                  <input type="text" placeholder="Brskaj" />
+                </div>
             
-              <div class="large-4 large-2 columns">
-                <a href="#" class="postfix button expand">Išči</a>
+                <div class="large-4 large-2 columns">
+                  <a href="#" class="postfix button expand">Išči</a>
+                </div>
               </div>
-            </div>
-          </form>       
+            </form>
+          </li>  
         </ul>
       </section>    
     </nav>
 
 <!--Konec top bara in navigacije-->
+<div class="row">
+  <div class="large-4 columns">
+    <p>
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: "flash_#{name}" %>
+      <% end %>
+    </p>  
+  </div>
+</div>
 
     <%= yield %>
+
+<div class="row">
+  <div class="large-6 large-offset-3 columns">
+    <div class="panel">
+      <h6>spodnji reklamni baner</h6>
+    </div>    
+  </div>  
+</div>
+
 <!--footer-->
 <div class="row">
   <div class="large-12 columns">
