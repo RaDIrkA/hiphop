@@ -11,7 +11,10 @@
  *= require_self
  *= require foundation_and_overrides
  */
-
+.top-bar-section top-bg ul {
+	color: #000000;
+	background-color: #000000;
+}
 .zg-gumb {
 	color:#EEC513;
 	background-color: #111111;
@@ -19,5 +22,10 @@
 	p {
 		font-size:12px;
 		color:white;
+		margin: 12px;
 	}
+}
+.search {
+	margin: 0 20px;
+	background-color:black;
 }

@@ -11,12 +11,21 @@
 
 
  */
+.top-bar-section top-bg ul {
+  color: #000000;
+  background-color: #000000; }
+
 .zg-gumb {
   color: #EEC513;
   background-color: #111111; }
   .zg-gumb p {
     font-size: 12px;
-    color: white; }
+    color: white;
+    margin: 12px; }
+
+.search {
+  margin: 0 20px;
+  background-color: black; }
 *,
 *:before,
 *:after {
@@ -2920,7 +2929,7 @@ label.error {
     width: 100%;
     height: auto;
     display: block;
-    background: #0000;
+    background: black;
     font-size: 16;
     margin: 0; }
   .top-bar-section .divider,
@@ -2938,7 +2947,7 @@ label.error {
     padding-left: 15px;
     font-size: 0.8125em;
     font-weight: bold;
-    background: #222222; }
+    background: black; }
     .top-bar-section ul li > a.button {
       background: #2ba6cb;
       font-size: 0.8125em; }
