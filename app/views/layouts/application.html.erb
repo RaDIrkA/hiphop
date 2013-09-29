@@ -36,8 +36,19 @@
           <li class="active"><%= link_to "Prva stran", root_path %></li>
           <li class="divider"></li>
         </ul>
+    <!--Login with FB-->
+        <ul class="right">
+          <% if current_fb_user %>
+            <li class="divider"></li>
+            <li><span class="zg-gumb"><p>Prijavljen kot<strong><%= current_fb_user.name %></strong></p></span>
+            <%= link_to "Izpiši se", signout_path, id: "sign_out" %>
+          <% else %> 
+            <%= link_to "Prijavi se s Facebookom", "/auth/facebook", id: "sign_in" %>
+          <% end %>
+        </ul>     
 
-        
+
+    <!--User registration -->        
         <ul class="right">
           <% if user_signed_in? %>
             <li class="divider"></li> 

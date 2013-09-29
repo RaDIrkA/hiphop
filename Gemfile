@@ -18,6 +18,7 @@ end
 gem 'zurb-foundation'
 gem 'auto_html'
 gem 'devise'
+gem 'omniauth-facebook', '1.4.0'
 
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

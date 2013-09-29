@@ -3,10 +3,10 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :yt_client
-
-#  def yt_client
-#  	@yt_client || = YoutubeIt::Client.new(:username => YoutubeITConfix.username , :password => YoutubeITConfig.password, :dev_key => YoutubeITConfig.dev_key)
-#  end
-
+private 
+	
+	def current_fb_user
+		@current_fb_user ||= FbUser.find(session[:user_id]) if session[:user_id]
+	end
+	helper_method :current_fb_user	
 end
