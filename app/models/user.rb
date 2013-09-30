@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable
  
 	def self.from_omniauth(auth)
-		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |user|
+		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |users|
 			users.provider = auth.provider
 			users.uid = users.uid
 			users.name = auth.info.name
