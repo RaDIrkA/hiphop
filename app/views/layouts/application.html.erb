@@ -37,17 +37,15 @@
           <li class="divider"></li>
         </ul>
     <!--Login with FB-->
+        <% if any_user_in %>
         <ul class="right">
-          <% if current_fb_user %>
             <li class="divider"></li>
-            <li><span class="zg-gumb"><p>Prijavljen kot<strong><%= current_fb_user.name %></strong></p></span>
-            <%= link_to "Izpiši se", signout_path, id: "sign_out" %>
+            <li><span class="zg-gumb"><p>Hello &raquo;<strong><%= any_user_in.name %></strong></p></span></li>
+            <li class="divider"></li>
+            <li><%= link_to "Izpiši se", signout_path, id: "sign_out" %></li>
+            <li class="divider"></li>
           <% else %> 
-            <%= link_to "Prijavi se s Facebookom", "/auth/facebook", id: "sign_in" %>
-          <% end %>
         </ul>     
-
-
     <!--User registration -->        
         <ul class="right">
           <% if user_signed_in? %>
@@ -63,10 +61,12 @@
             <li><%= link_to 'Registriraj se', new_user_registration_path %></li>
             <li class="divider"></li>    
             <li><%= link_to 'Prijava', new_user_session_path %></li>
+            <li class="divider"></li>
+            <li><%= link_to "Facebook prijava", "/auth/facebook", id: "sign_in" %></li>
             <li class="divider"></li> 
-          <% end %>     
+          <% end %>
+        <% end %>   
         </ul>   
-
         <ul class="left">
           <li class="divider"></li>
           <li>
