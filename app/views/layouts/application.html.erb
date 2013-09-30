@@ -40,7 +40,7 @@
         <% if any_user_in %>
         <ul class="right">
             <li class="divider"></li>
-            <li><span class="zg-gumb"><p>Hello &raquo;<strong><%= current_user.name %></strong></p></span></li>
+            <li><span class="zg-gumb"><p>Hello &raquo;<strong><%= any_user_in.name %></strong></p></span></li>
             <li class="divider"></li>
             <li><%= link_to "Izpiši se", signout_path, id: "sign_out" %></li>
             <li class="divider"></li>
