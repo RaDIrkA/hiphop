@@ -12,8 +12,8 @@ private
 
 	before_filter :any_user_in
 
-	def any_user_in
-  		redirect_to login_path unless current_user
+	def require_user
+  		redirect_to root_url unless any_user_in
 	end
 
 	helper_method :any_user_in
