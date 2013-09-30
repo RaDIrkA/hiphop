@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
  
 	def self.from_omniauth(auth)
 		where(auth.slice(:provider, :uid)).first_or_initialize.tap do |users|
-			users.provider = auth.provider
+			user.provider = auth.provider
 			users.uid = users.uid
 			users.name = auth.info.name
 			users.oauth_token = auth.credentials.token
