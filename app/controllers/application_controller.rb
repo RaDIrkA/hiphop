@@ -10,6 +10,12 @@ private
 		@current_user ||= FbUser.find(session[:user_id]) if session[:user_id]
 	end	
 
+	before_filter :require_user
+
+	def require_user
+  		redirect_to login_path unless current_user
+	end
+
 	helper_method :any_user_in
 
 end
