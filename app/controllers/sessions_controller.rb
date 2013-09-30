@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 	def create
-		user = Users.from_omniauth(env['omniauth.auth'])
-		session[:user_id] = user.id
+		users = User.from_omniauth(env['omniauth.auth'])
+		session[:user_id] = users.id
 		flash[:notice] = "Facebook prijava je bila uspešna"
 		redirect_to root_url
 	end
