@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 	def create
-		current_user.session.create(omniauth['provider'], omniauth["uid"])
+		current_user.create(omniauth['provider'], omniauth["uid"])
 		users = User.from_omniauth(env['omniauth.auth'])
 		session[:user_id] = users.id
 		flash[:notice] = "Facebook prijava je bila uspešna"
